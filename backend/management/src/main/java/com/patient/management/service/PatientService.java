@@ -17,5 +17,8 @@ public interface PatientService {
 
    //Update Patient
    PatientResponse updatingPatient(Long id, PatientRequest request);
+
+   //Find By ID
+    PatientResponse findByID (Long id);
     
 } 

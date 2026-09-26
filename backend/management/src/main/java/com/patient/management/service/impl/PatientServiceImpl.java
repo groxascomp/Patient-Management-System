@@ -96,5 +96,20 @@ public class PatientServiceImpl implements PatientService {
     }
 
 
+    @Override 
+    public PatientResponse findByID (Long id){
+        Patients patients = patientRepository.findById(id).orElseThrow(() -> new PatientNotFound(id));
+
+        PatientResponse dto = new PatientResponse();
+        dto.setIdPatient(patients.getIdPatient());
+        dto.setNamePatient(patients.getNamePatient());
+        dto.setEmailPatient(patients.getEmailPatient());
+        dto.setAddressPatient(patients.getAddressPatient());
+        dto.setBdayPatient(patients.getBdayPatient());
+        dto.setRegisteredDatePatient(patients.getRegisteredDatePatient());
+    
+        return dto;
+    }
+
 
 }
