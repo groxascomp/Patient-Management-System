@@ -65,6 +65,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override 
     public void deletePatient(Long id){
+        patientRepository.findById(id).orElseThrow(()-> new PatientNotFound(id));
         patientRepository.deleteById(id);
     }
 
