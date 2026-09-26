@@ -47,14 +47,16 @@ public class PatientServiceImpl implements PatientService {
         patients.setBdayPatient(request.getBdayPatient());
         patients.setRegisteredDatePatient(request.getRegisteredDatePatient());
 
-        
+        Patients savedPatient = patientRepository.save(patients);
+
+
         PatientResponse dto = new PatientResponse();
-        dto.setIdPatient(patients.getIdPatient());
-        dto.setNamePatient(patients.getNamePatient());
-        dto.setEmailPatient(patients.getEmailPatient());
-        dto.setAddressPatient(patients.getAddressPatient());
-        dto.setBdayPatient(patients.getBdayPatient());
-        dto.setRegisteredDatePatient(patients.getRegisteredDatePatient());
+        dto.setIdPatient(savedPatient.getIdPatient());
+        dto.setNamePatient(savedPatient.getNamePatient());
+        dto.setEmailPatient(savedPatient.getEmailPatient());
+        dto.setAddressPatient(savedPatient.getAddressPatient());
+        dto.setBdayPatient(savedPatient.getBdayPatient());
+        dto.setRegisteredDatePatient(savedPatient.getRegisteredDatePatient());
 
         return dto;
     } 
