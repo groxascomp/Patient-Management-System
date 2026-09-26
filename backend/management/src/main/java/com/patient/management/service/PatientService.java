@@ -14,5 +14,8 @@ public interface PatientService {
 
    //Deleting Patient
    void deletePatient(Long id);
+
+   //Update Patient
+   PatientResponse updatingPatient(Long id, PatientRequest request);
     
 } 

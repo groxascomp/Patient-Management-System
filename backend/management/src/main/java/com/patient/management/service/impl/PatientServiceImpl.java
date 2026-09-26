@@ -68,5 +68,33 @@ public class PatientServiceImpl implements PatientService {
     }
 
 
+    @Override 
+    public PatientResponse updatingPatient(Long id, PatientRequest request){
+        Patients patients = patientRepository.findById(id).orElse(null);
+        if (patients == null){
+            return  null;
+        }
+        patients.setNamePatient(request.getNamePatient());
+        patients.setEmailPatient(request.getEmailPatient());
+        patients.setAddressPatient(request.getAddressPatient());
+        patients.setBdayPatient(request.getBdayPatient());
+        patients.setRegisteredDatePatient(request.getRegisteredDatePatient());
+
+        Patients savedPatient = patientRepository.save(patients);
+
+        PatientResponse dto = new PatientResponse();
+        dto.setIdPatient(savedPatient.getIdPatient());
+        dto.setNamePatient(savedPatient.getNamePatient());
+        dto.setEmailPatient(savedPatient.getEmailPatient());
+        dto.setAddressPatient(savedPatient.getAddressPatient());
+        dto.setBdayPatient(savedPatient.getBdayPatient());
+        dto.setRegisteredDatePatient(savedPatient.getRegisteredDatePatient());
+
+        return dto;
+
+
+    }
+
+
 
 }
