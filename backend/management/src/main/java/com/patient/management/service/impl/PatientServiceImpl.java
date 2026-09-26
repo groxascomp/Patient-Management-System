@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.patient.management.dto.response.PatientResponse;
 import com.patient.management.repository.PatientRepository;
 import com.patient.management.service.PatientService;
 
+
+@Service 
 public class PatientServiceImpl implements PatientService {
     
      
